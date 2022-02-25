@@ -31,6 +31,5 @@ class CryptoConverter:
 
         r = requests.get(
             f'https://currate.ru/api/?get=rates&pairs={quote_ticker}{base_ticker}&key=e5ae24a97043df1f645743f003209bad')
-        total_base = json.loads(r.content)
-
+        total_base = json.loads(r.content)['data'][quote_ticker + base_ticker]
         return total_base
